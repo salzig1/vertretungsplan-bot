@@ -1,14 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('version') {
-      steps {
-        sh 'python3 --version'
+    stage('start_whatsapp_bot') {
+      enviroment {
+        TWILIO_CREDS = credentials("twilio-credentials")
       }
-    }
-    stage('hello') {
       steps {
-        sh 'python3 whatsapp.py'
+        sh 'python3 whatsapp.py ${TWILIO_CRED_USR} ${TWILIO_CRED_PSW}'
       }
     }
   }

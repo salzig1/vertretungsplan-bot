@@ -1,15 +1,16 @@
 from twilio.rest import Client 
 from weather import Weather
 import time
+import sys
+
 
 weather = Weather("127ce0a3aad14f238e6193830222112", 
                   "47.68768451708976,11.576040434014303")
 
+twilio_sid = sys.argv[1]
+twilio_token = sys.argv[2]
 
-
-account_sid = 'ACa35f3fc20f2814a4af19580ebb5a2068' 
-auth_token = '969086ff97496e110141bd506d5ee991' 
-client = Client(account_sid, auth_token)
+client = Client(twilio_sid, twilio_token)
 
 processed_message_sids = []
 messages = client.messages.list()
