@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Run Python script') {
             steps {
-                sh "python /path/to/script.py ${TWILIO_CREDS_USR} ${TWILIO_CREDS_PSW}"
+                sh "python3 whatsapp.py ${TWILIO_CREDS_USR} ${TWILIO_CREDS_PSW}"
             }
         }
     }
