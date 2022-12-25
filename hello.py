@@ -1,1 +1,1 @@
-print("kak dela?")
+print("meem")
