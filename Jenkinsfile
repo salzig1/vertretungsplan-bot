@@ -1,12 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('start_whatsapp_bot') {
-      environment {
-        TWILIO_CREDS = credentials("twilio-credentials")
-      }
+    stage('store credentials') {
       steps {
-        sh 'python3 whatsapp.py ${TWILIO_CRED_USR} ${TWILIO_CRED_PSW}'
+        environment {
+          def twilio_creds = credentials("twilio-credentials")
+          USERNAME = twilio_creds.username
+          PASSWORD = twilio_creds.password
+        }
+      }
+    stage("run whatsapp bot")
+      steps {
+        sh 'python3 whatsapp.py ${env.USERNAME} ${env.PASSWORD}'
       }
     }
   }
