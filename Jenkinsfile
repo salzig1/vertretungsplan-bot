@@ -2,15 +2,13 @@ pipeline {
     agent any
 
     environment {
-        def twilio_creds = credentials("twilio-credentials")
-        USERNAME = "${twilio_creds.username}"
-        PASSWORD = "${twilio_creds.password}"
+        TWILIO_CREDS = credentials("twilio-credentials")
     }
 
     stages {
         stage('Run Python script') {
             steps {
-                sh "python /path/to/script.py ${env.USERNAME} ${env.PASSWORD}"
+                sh "python /path/to/script.py ${TWILIO_CREDS_USR} ${TWILIO_CREDS_PSW}"
             }
         }
     }
