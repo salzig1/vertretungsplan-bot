@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
     stage('start_whatsapp_bot') {
-      enviroment {
+      environment {
         TWILIO_CREDS = credentials("twilio-credentials")
       }
       steps {
