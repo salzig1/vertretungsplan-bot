@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         def twilio_creds = credentials("twilio-credentials")
-        USERNAME = twilio_creds.username
-        PASSWORD = twilio_creds.password
+        USERNAME = '${twilio_creds.username}'
+        PASSWORD = '${twilio_creds.password}'
     }
 
     stages {
